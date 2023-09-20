@@ -3,14 +3,82 @@
     margin: 0;
     box-sizing: border-box;
 }
+$textsize:16px;
+$colorWHite:#fff;
+$h1Bottom:2.5rem;
+$bodyColor:hsl(235, 16%, 14%);
 body{
     min-height: 100vh;
     overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-image: url('../design/bg-cover.png');
+    // align-items: center;
+    background-color: $bodyColor;
+    background-image: url('../images/bg-stars.svg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    font-size: $textsize;
+    position: relative;
+    &::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 180px;
+        background: url('../images/pattern-hills.svg');
+        z-index: 2;
+        background-position: bottom center;
+        background-size: contain;
+    }
+}
+
+
+section{
+    margin-top: 200px;
+    .container{
+        .row{
+           
+            h1{
+                letter-spacing: 2px;
+                color: $colorWHite;
+                text-transform: uppercase;
+                margin-bottom: $h1Bottom;
+                text-align: center;
+            }
+            .coutdown{
+              
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-items: center;
+                gap: 40px;
+                .days,.hours,.minutes,.seconds{
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    justify-content: space-between;
+                 
+                    gap: 20px;
+                    color: $colorWHite;
+                    background: #34364f;
+                    width: 200px;
+                    height: 100%;
+                    padding: 20px;
+                    .number{
+                        color: #f6617f;
+                        font-size: 60px;
+                        font-weight: 700;
+                    }
+                    .title{
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        
+                    }
+                }
+            }
+        }
+    }
 }
