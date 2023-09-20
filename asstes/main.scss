@@ -27,11 +27,12 @@ body{
         right: 0;
         bottom: 0;
         width: 100%;
-        height: 180px;
+        height: 250px;
         background: url('../images/pattern-hills.svg');
         z-index: 2;
+        background-repeat: no-repeat;
         background-position: bottom center;
-        background-size: contain;
+        background-size: cover;
     }
 }
 
@@ -63,14 +64,44 @@ section{
                  
                     gap: 20px;
                     color: $colorWHite;
-                    background: #34364f;
-                    width: 200px;
+                   
+                    
                     height: 100%;
-                    padding: 20px;
+                 
                     .number{
                         color: #f6617f;
                         font-size: 60px;
                         font-weight: 700;
+                        text-align: center;
+                        padding: 20px;
+                        width: 150px;
+                        background: #34364f;
+                        box-shadow: hsl(234, 17%, 12%) 0px 2px 3px, rgba(0, 0, 0, 0.3) 0px 10px 1px 0px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+                        position: relative;
+                        z-index: 20;
+                        &::before{
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            width: 100%;
+                            height: 50%;
+                            background-color: #2c2c44;
+                            z-index: -2;
+                            border-bottom: 1px solid #252942;
+                        }
+                        &::after{
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            width: 100%;
+                            height: 50%;
+                            background-color: #34364f;
+                            z-index: -2;
+                        }
                     }
                     .title{
                         text-transform: uppercase;
