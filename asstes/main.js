@@ -1,14 +1,22 @@
 let selectCounter = document.querySelector(".coutdown")
+
+
+
 let randomData = 192545;
 
+let dateobj = new Date().setHours(new Date().getHours() + 24);
 
-let dateobj = new Date('December 15, 2055');
-let fulldata = dateobj.getFullYear();
-let seconds = randomData;
+// İlk olarak, 8 gün, 24 saat, 0 dakika, 59 saniye olarak başlatın
+let seconds = 8 * 24 * 60 * 60 + 24 * 60 * 60 + 0;
 
-
+let daysElement =document.querySelector("[data-days-tens]")
+let hoursElement =document.querySelector("[data-hours]")
+let minutesElement =document.querySelector("[data-minutes]")
+let secondsElement =document.querySelector("[data-seconds]")
+let days = 0
 function startTimer() {
 
+    
     let days = Math.floor(seconds / 24 / 60 / 60);
     let hoursLeft = Math.floor((seconds) - (days * 86400))
     let hours = Math.floor(hoursLeft / 3600);
@@ -19,49 +27,15 @@ function startTimer() {
     function pad(n) {
         return (n < 10 ? "0" + n : n)
     }
-    selectCounter.innerHTML = `
-        <div class="days">
-            <div class="number">
-                ${pad(days)}
-                <span class="left"></span>
-                <span class="right"></span>
-                <span class="line"></span>
-            </div>
-            <div class="title">
-                days
-            </div>
-            </div>
-        <div class="hours">
-            <div class="number">
-                ${pad(hours)}
-                <span class="left"></span>
-                <span class="right"></span>
-            </div>
-            <div class="title">
-                hours
-            </div>
-        </div>
-        <div class="minutes">
-            <div class="number">
-                ${pad(minutes)}
-                <span class="left"></span>
-                <span class="right"></span>
-            </div>
-            <div class="title">
-                minutes
-            </div>
-        </div>
-        <div class="seconds">
-            <div class="number">
-                ${pad(remainingSeconds)}
-                <span class="left"></span>
-                <span class="right"></span>
-            </div>
-            <div class="title">
-                seconds
-            </div>
-        </div>
-    `
+    
+  
+   
+    daysElement.innerText = pad(days);
+    hoursElement.innerText = pad(hours);
+    minutesElement.innerText = pad(minutes);
+    secondsElement.innerText = pad(remainingSeconds);
+
+
     if (seconds == 0) {
         clearInterval(countdownTimer);
     } else {
