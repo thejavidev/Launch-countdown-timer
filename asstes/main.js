@@ -25,6 +25,7 @@ function startTimer() {
                 ${pad(days)}
                 <span class="left"></span>
                 <span class="right"></span>
+                <span class="line"></span>
             </div>
             <div class="title">
                 days

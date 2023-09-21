@@ -66,6 +66,7 @@ section .container .row .coutdown .days .number, section .container .row .coutdo
   padding: 20px;
   width: 150px;
   background: #34364f;
+  overflow: hidden;
   box-shadow: hsl(234, 17%, 12%) 0px 2px 3px, rgba(0, 0, 0, 0.3) 0px 10px 1px 0px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   position: relative;
   z-index: 20;
@@ -80,7 +81,6 @@ section .container .row .coutdown .days .number::before, section .container .row
   height: 50%;
   background-color: #2c2c44;
   z-index: -2;
-  border-bottom: 1px solid #252942;
 }
 section .container .row .coutdown .days .number::after, section .container .row .coutdown .hours .number::after, section .container .row .coutdown .minutes .number::after, section .container .row .coutdown .seconds .number::after {
   content: "";
@@ -92,6 +92,34 @@ section .container .row .coutdown .days .number::after, section .container .row 
   height: 50%;
   background-color: #34364f;
   z-index: -2;
+}
+section .container .row .coutdown .days .number .line, section .container .row .coutdown .hours .number .line, section .container .row .coutdown .minutes .number .line, section .container .row .coutdown .seconds .number .line {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  right: 0;
+  width: 87%;
+  height: 1px;
+  z-index: 2;
+  background: #252942;
+}
+section .container .row .coutdown .days .number .left, section .container .row .coutdown .hours .number .left, section .container .row .coutdown .minutes .number .left, section .container .row .coutdown .seconds .number .left {
+  position: absolute;
+  top: 40%;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1a1c28;
+}
+section .container .row .coutdown .days .number .right, section .container .row .coutdown .hours .number .right, section .container .row .coutdown .minutes .number .right, section .container .row .coutdown .seconds .number .right {
+  position: absolute;
+  top: 40%;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1a1c28;
 }
 section .container .row .coutdown .days .title, section .container .row .coutdown .hours .title, section .container .row .coutdown .minutes .title, section .container .row .coutdown .seconds .title {
   text-transform: uppercase;
