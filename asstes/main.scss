@@ -1,13 +1,17 @@
-*,*::before,*::after{
+*,
+*::before,
+*::after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+
 $textsize:2.5rem;
 $colorWHite:#fff;
 $h1Bottom:2.5rem;
 $bodyColor:hsl(235, 16%, 14%);
-body{
+
+body {
     min-height: 100vh;
     overflow: hidden;
     display: flex;
@@ -20,7 +24,8 @@ body{
     background-size: cover;
     font-size: $textsize;
     position: relative;
-    &::after{
+
+    &::after {
         content: '';
         position: absolute;
         left: 0;
@@ -37,100 +42,123 @@ body{
 }
 
 
-section{
+section {
     margin-top: 200px;
-    .container{
-        .row{
-           
-            h1{
+
+    .container {
+        .row {
+
+            h1 {
                 letter-spacing: 2px;
                 color: $colorWHite;
                 text-transform: uppercase;
                 margin-bottom: $h1Bottom;
                 text-align: center;
             }
-            .coutdown{
-              
+
+            .coutdown {
+
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 align-items: center;
                 gap: 40px;
-                .days,.hours,.minutes,.seconds{
-                  
+
+                .days,
+                .hours,
+                .minutes,
+                .seconds {
+
                     color: $colorWHite;
-                   
-                
+
+
                     height: 100%;
-                 
-                    .number{
+
+                    .number {
                         color: #f6617f;
                         display: flex;
-                        box-shadow: hsl(234, 17%, 12%) 0px 2px 3px, rgba(0, 0, 0, 0.3) 0px 10px 1px 0px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-                        flex-direction: column;
-                        background-color: #34364f;
-                    
-                        .fip-card{
+
+                        .top,
+                        .bottom,
+                        .flip-card .top-flip,
+                        .flip-card .bottom-flip {
+                            height: .95em;
+                            line-height: 1.40;
+                            overflow: hidden;
+                            padding: .25em;
+                        }
+
+                        .top,
+                        .flip-card,
+                        .top-flip {
+                            background: #34364f;
+                            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+                        }
+
+                        .bottom,
+                        .flip-card .bottom-flip {
+                            background-color: #34364f;
+                            display: flex;
+                            align-items: flex-end;
+                        }
+
+                        .flip-card {
                             position: relative;
                             display: inline-flex;
-                            .top-flip{
+                            flex-direction: column;
+                            background-color: #34364f;
+                            overflow: hidden;
+                            font-size: 4rem;
+                            box-shadow: hsl(234, 17%, 12%) 0px 2px 3px, rgba(0, 0, 0, 0.3) 0px 10px 1px 0px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+                            .top-flip {
                                 position: absolute;
                                 width: 100%;
                                 left: 0;
                                 top: 0;
-                                animation: flip-top 1s ease-in;
+                                animation: flip-top 250ms ease-in;
                                 transform-origin: bottom;
-                                background-color: #f6617f;
                             }
-                            .bottom-flip{
+
+                            .bottom-flip {
                                 position: absolute;
                                 bottom: 0;
                                 width: 100%;
+                                animation: flip-bottom 250ms ease-out 250ms;
                                 transform-origin: top;
+                                transform: translateX(90deg);
                             }
                         }
-                        .top,.bottom,.fip-card,.top-flip,.bottom-flip{
-                            height: .95em;
-                            overflow: hidden;
-                            line-height: 1.15;
-                            padding: .25em;
-                        }
-                        .top,.flip-card,.top-flip{
-                            width: 100%;
-                            display: flex;
-                            justify-content: center;
-                            align-items: flex-start;
-                        }
-                        .bottom,.flip-card,.bottom-flip{
-                            width: 100%;
-                            display: flex;
-                            align-items: flex-end;
-                            justify-content: center;
-                        }
-                        
-                        
-                        .left{
+
+
+
+
+
+                        .left {
                             position: absolute;
                             top: 40%;
-                            left:-10px;
+                            left: -10px;
                             width: 20px;
                             height: 20px;
                             border-radius: 50%;
                             background: #1a1c28;
                         }
-                        .right{
+
+                        .right {
                             position: absolute;
                             top: 40%;
-                            right:-10px;
+                            right: -10px;
                             width: 20px;
                             height: 20px;
                             border-radius: 50%;
                             background: #1a1c28;
                         }
                     }
-                    .title{
+
+                    .title {
                         text-transform: uppercase;
                         letter-spacing: 2px;
+                        font-size: 20px;
                         margin-top: 30px;
                     }
                 }
@@ -138,8 +166,15 @@ section{
         }
     }
 }
+
 @keyframes flip-top {
     100% {
-      transform: rotateX(90deg);
+        transform: rotateX(90deg);
     }
-  }
+}
+
+@keyframes flip-bottom {
+    100% {
+        transform: rotateX(0deg);
+    }
+}

@@ -1,48 +1,56 @@
-// let selectCounter = document.querySelector(".coutdown")
+let selectCounter = document.querySelector(".coutdown")
+let previousTimeBetweenDates
 
+const countToDate = new Date().setHours(new Date().getHours() + 192)
 
+setInterval(() => {
+    const currentDate = new Date()
+    const timeBeetüenDates = Math.ceil((countToDate - currentDate) / 1000)
+    flipAllCards(timeBeetüenDates)
+    previousTimeBetweenDates = timeBeetüenDates
+}, 1000);
 
-// let randomData = 192545;
+function pad(n) {
+    return (n < 10 ? "0" + n : n)
+}
 
-// let dateobj = new Date().setHours(new Date().getHours() + 24);
-
-// // İlk olarak, 8 gün, 24 saat, 0 dakika, 59 saniye olarak başlatın
-// let seconds = 8 * 24 * 60 * 60 + 24 * 60 * 60 + 0;
-
-// let daysElement =document.querySelector("[data-days-tens]")
-// let daysElement2 =document.querySelector("[data-days-tens2]")
-// let hoursElement =document.querySelector("[data-hours]")
-// let minutesElement =document.querySelector("[data-minutes]")
-// let secondsElement =document.querySelector("[data-seconds]")
-// let days = 0
-// function startTimer() {
-
+function flipAllCards(time) {
+    const days = Math.ceil(time / (60 * 60 * 24))
+    let seconds = time % 60
+    let minutes = Math.floor(time / 60) % 60
+    let hours = Math.floor(time / 3600) % 24;
+    if (seconds < 0) {
+        seconds = 59;
+    }
+    flip(document.querySelector("[data-seconds-tens]"), pad(seconds))
     
-//     let days = Math.floor(seconds / 24 / 60 / 60);
-//     let hoursLeft = Math.floor((seconds) - (days * 86400))
-//     let hours = Math.floor(hoursLeft / 3600);
-//     let minutesLeft = Math.floor((hoursLeft) - (hours * 3600));
-//     let minutes = Math.floor(minutesLeft / 60);
-//     let remainingSeconds = seconds % 60;
+}
 
-//     function pad(n) {
-//         return (n < 10 ? "0" + n : n)
-//     }
-    
-  
+function flip(flipCard, newNumber) {
+    const topHalf = flipCard.querySelector(".top")
+    const startNumber = parseInt(topHalf.textContent)
+    if (newNumber === startNumber) return
+
+    const bottomHalf = flipCard.querySelector(".bottom")
+    const topFlip = document.createElement("div")
+    topFlip.classList.add("top-flip")
+    const bottomFlip = document.createElement("div")
+    bottomFlip.classList.add("bottom-flip")
+
+    bottomHalf.textContent = startNumber
+    topFlip.textContent = startNumber
+    bottomFlip.textContent = newNumber
    
-//     daysElement.innerText = pad(days);
-//     daysElement2.innerText = pad(days);
-//     hoursElement.innerText = pad(hours);
-//     minutesElement.innerText = pad(minutes);
-//     secondsElement.innerText = pad(remainingSeconds);
 
-
-//     if (seconds == 0) {
-//         clearInterval(countdownTimer);
-//     } else {
-//         seconds--;
-//     }
-// }
-
-// let countdownTimer = setInterval('startTimer()', 1000)
+    topFlip.addEventListener("animationstart", e => {
+        topHalf.textContent = newNumber
+    })
+    topFlip.addEventListener("animationend", e => {
+        topFlip.remove()
+    })
+    bottomFlip.addEventListener("animationend", e => {
+        bottomHalf.textContent = newNumber
+        bottomFlip.remove()
+    })
+    flipCard.append(topFlip, bottomFlip)
+}
