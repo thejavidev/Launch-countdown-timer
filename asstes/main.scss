@@ -126,14 +126,9 @@ section {
                                 width: 100%;
                                 animation: flip-bottom 250ms ease-out 250ms;
                                 transform-origin: top;
-                                transform: translateX(90deg);
+                                transform: rotateX(90deg);
                             }
                         }
-
-
-
-
-
                         .left {
                             position: absolute;
                             top: 40%;
