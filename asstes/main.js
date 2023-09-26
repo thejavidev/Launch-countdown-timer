@@ -6,8 +6,8 @@ const countToDate = new Date().setHours(new Date().getHours() + 192)
 setInterval(() => {
     const currentDate = new Date()
     const timeBeetüenDates = Math.ceil((countToDate - currentDate) / 1000)
-    flipAllCards(timeBeetüenDates,currentDate)
-
+    flipAllCards(timeBeetüenDates, currentDate)
+    console.log(timeBeetüenDates)
 }, 1000);
 
 function pad(n) {
@@ -15,29 +15,23 @@ function pad(n) {
 }
 let previousDay = -1;
 
-function flipAllCards(time,currentDate) {
+function flipAllCards(time, currentDate) {
     const days = Math.ceil(time / (60 * 60 * 24))
     let seconds = time % 60
     let minutes = Math.floor(time / 60) % 60
     let hours = Math.floor(time / 3600) % 24;
-
-    const cureentDay =currentDate.getDate();
-    if(cureentDay !== previousDay ){
-        previousDay =cureentDay
+    const cureentDay = currentDate.getDate();
+    if (cureentDay !== previousDay) {
+        previousDay = cureentDay
         flip(document.querySelector("[data-days]"), days)
     }
-
     if (seconds < 0) {
         seconds = 59;
     }
+
     flip(document.querySelector("[data-seconds]"), seconds)
-
-    flip(document.querySelector("[data-minutes]"), pad(minutes))
-
-    flip(document.querySelector("[data-hours]"), pad(hours))
-
-  
-
+    flip(document.querySelector("[data-minutes]"), minutes)
+    flip(document.querySelector("[data-hours]"), hours)
 }
 
 function flip(flipCard, newNumber) {

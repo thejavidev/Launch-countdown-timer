@@ -87,17 +87,13 @@ section .container .row .coutdown .seconds .number .flip-card .bottom-flip {
   padding: 0.25em;
 }
 section .container .row .coutdown .days .number .top,
-section .container .row .coutdown .days .number .flip-card,
-section .container .row .coutdown .days .number .top-flip,
+section .container .row .coutdown .days .number .flip-card .top-flip,
 section .container .row .coutdown .hours .number .top,
-section .container .row .coutdown .hours .number .flip-card,
-section .container .row .coutdown .hours .number .top-flip,
+section .container .row .coutdown .hours .number .flip-card .top-flip,
 section .container .row .coutdown .minutes .number .top,
-section .container .row .coutdown .minutes .number .flip-card,
-section .container .row .coutdown .minutes .number .top-flip,
+section .container .row .coutdown .minutes .number .flip-card .top-flip,
 section .container .row .coutdown .seconds .number .top,
-section .container .row .coutdown .seconds .number .flip-card,
-section .container .row .coutdown .seconds .number .top-flip {
+section .container .row .coutdown .seconds .number .flip-card .top-flip {
   background: #34364f;
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 }

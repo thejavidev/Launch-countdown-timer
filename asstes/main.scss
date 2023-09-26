@@ -89,7 +89,7 @@ section {
                         }
 
                         .top,
-                        .flip-card,
+                        .flip-card
                         .top-flip {
                             background: #34364f;
                             border-bottom: 2px solid rgba(0, 0, 0, 0.1);
@@ -129,6 +129,7 @@ section {
                                 transform: rotateX(90deg);
                             }
                         }
+
                         .left {
                             position: absolute;
                             top: 40%;
