@@ -26,8 +26,8 @@ body {
     position: relative;
 
     &::after {
-        content: '';
-        position: absolute;
+        content: "";
+        position: fixed;
         left: 0;
         right: 0;
         bottom: 0;
@@ -89,8 +89,7 @@ section {
                         }
 
                         .top,
-                        .flip-card
-                        .top-flip {
+                        .flip-card .top-flip {
                             background: #34364f;
                             border-bottom: 2px solid rgba(0, 0, 0, 0.1);
                         }
@@ -172,5 +171,52 @@ section {
 @keyframes flip-bottom {
     100% {
         transform: rotateX(0deg);
+    }
+}
+
+@media screen and (max-width:991px) {
+    body::after{
+        height: 70px;
+        background-size: contain;
+    }
+    section{
+        margin-top:100px;
+    }
+    section .container .row h1 {
+        font-size: 20px;
+    }
+
+    section .container .row .coutdown {
+        gap: 10px;
+    }
+    section .container .row .coutdown .days, section .container .row .coutdown .hours, section .container .row .coutdown .minutes, section .container .row .coutdown .seconds{
+        width: 60px;
+    }
+    section .container .row .coutdown .days .number .top, section .container .row .coutdown .days .number .flip-card .top-flip, section .container .row .coutdown .hours .number .top, section .container .row .coutdown .hours .number .flip-card .top-flip, section .container .row .coutdown .minutes .number .top, section .container .row .coutdown .minutes .number .flip-card .top-flip, section .container .row .coutdown .seconds .number .top, section .container .row .coutdown .seconds .number .flip-card .top-flip{
+        font-size: 35px;
+    }
+    section .container .row .coutdown .days .number .bottom, section .container .row .coutdown .days .number .flip-card .bottom-flip, section .container .row .coutdown .hours .number .bottom, section .container .row .coutdown .hours .number .flip-card .bottom-flip, section .container .row .coutdown .minutes .number .bottom, section .container .row .coutdown .minutes .number .flip-card .bottom-flip, section .container .row .coutdown .seconds .number .bottom, section .container .row .coutdown .seconds .number .flip-card .bottom-flip{
+        font-size: 35px;
+    }
+    section .container .row .coutdown .days .title, section .container .row .coutdown .hours .title, section .container .row .coutdown .minutes .title, section .container .row .coutdown .seconds .title{
+        font-size: 8px;
+        text-align: center;
+    }
+    section .container .row .coutdown .days .number, section .container .row .coutdown .hours .number, section .container .row .coutdown .minutes .number, section .container .row .coutdown .seconds .number{
+        justify-content: center;
+    }
+}
+@media screen and (max-width:767px) {
+    section .container .row h1 {
+        font-size: 15px;
+    }
+    section .container .row .coutdown .days, section .container .row .coutdown .hours, section .container .row .coutdown .minutes, section .container .row .coutdown .seconds{
+        width: 55px;
+    }
+    section .container .row .coutdown .days .number .top, section .container .row .coutdown .days .number .flip-card .top-flip, section .container .row .coutdown .hours .number .top, section .container .row .coutdown .hours .number .flip-card .top-flip, section .container .row .coutdown .minutes .number .top, section .container .row .coutdown .minutes .number .flip-card .top-flip, section .container .row .coutdown .seconds .number .top, section .container .row .coutdown .seconds .number .flip-card .top-flip{
+        font-size: 30px;
+    }
+    section .container .row .coutdown .days .number .bottom, section .container .row .coutdown .days .number .flip-card .bottom-flip, section .container .row .coutdown .hours .number .bottom, section .container .row .coutdown .hours .number .flip-card .bottom-flip, section .container .row .coutdown .minutes .number .bottom, section .container .row .coutdown .minutes .number .flip-card .bottom-flip, section .container .row .coutdown .seconds .number .bottom, section .container .row .coutdown .seconds .number .flip-card .bottom-flip{
+        font-size: 30px;
     }
 }
